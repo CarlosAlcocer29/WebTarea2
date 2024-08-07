@@ -16,6 +16,10 @@ Route::get('/movies/create', [MovieController::class, 'create']);
 Route::post('/movies', [MovieController::class, 'store']);
 Route::get('/movies/genre/{genre}', 'App\Http\Controllers\MovieController@showMoviesByGenre');
 Route::get('/movies/genre/{genre}', 'App\Http\Controllers\MovieController@showMoviesByGenre');
+// routes/web.php
+
+Route::get('/movies/create', [MovieController::class, 'create'])->name('movies.create');
+Route::post('/movies', [MovieController::class, 'store'])->name('movies.store');
 
 
 

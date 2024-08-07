@@ -1,4 +1,6 @@
 <?php
+// app/Http/Controllers/MovieController.php
+
 namespace App\Http\Controllers;
 
 use App\Models\Category;
@@ -78,5 +80,15 @@ class MovieController extends Controller
         $movies = Movie::where('category_id', $category->id)->get();
 
         return response()->json($movies, 200);
+    }
+
+    // Método para mostrar el formulario de creación
+    public function create()
+    {
+        // Obtener todas las categorías para mostrarlas en el formulario
+        $categories = Category::all();
+
+        // Retornar la vista con el formulario para crear una nueva película
+        return view('movies.create', compact('categories'));
     }
 }
